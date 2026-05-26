@@ -1,0 +1,38 @@
+{
+  "model_name": "YOLOv8 Defect Detector",
+  "version": "1.0.0",
+  "training_date": "2024-01-15",
+  "dataset_info": {
+    "total_images": 10000,
+    "train_images": 7000,
+    "val_images": 1500,
+    "test_images": 1500,
+    "defect_classes": 10
+  },
+  "performance_metrics": {
+    "mAP50": 0.892,
+    "mAP50_95": 0.654,
+    "precision": 0.876,
+    "recall": 0.843,
+    "f1_score": 0.859,
+    "inference_time_ms": 245
+  },
+  "per_class_metrics": {
+    "scratch": {"precision": 0.85, "recall": 0.82, "f1": 0.83},
+    "dent": {"precision": 0.88, "recall": 0.86, "f1": 0.87},
+    "crack": {"precision": 0.92, "recall": 0.89, "f1": 0.90},
+    "hole": {"precision": 0.91, "recall": 0.88, "f1": 0.89},
+    "stain": {"precision": 0.79, "recall": 0.81, "f1": 0.80},
+    "normal": {"precision": 0.94, "recall": 0.96, "f1": 0.95}
+  },
+  "cpu_performance": {
+    "inference_time_avg_ms": 245,
+    "memory_usage_mb": 850,
+    "model_size_mb": 14.2
+  },
+  "recommendations": [
+    "Increase scratch defect samples for better accuracy",
+    "Optimize model for faster inference on CPU",
+    "Consider quantization for edge deployment"
+  ]
+}

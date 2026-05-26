@@ -1,0 +1,45 @@
+
+
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: defect-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./database:/app/database
+      - ./models:/app/models
+      - ./uploads:/app/static/uploads
+    environment:
+      - DATABASE_URL=sqlite:///database/defect_system.db
+      - DEBUG=true
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: defect-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: defect-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped

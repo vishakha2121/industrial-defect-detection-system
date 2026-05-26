@@ -1,0 +1,47 @@
+.dashboard-stats-card {
+  transition: all 0.3s ease;
+}
+
+.dashboard-stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.recent-detections-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.recent-detections-table tbody tr:hover {
+  @apply bg-gray-50 dark:bg-gray-700;
+}
+
+.defect-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.defect-indicator.high {
+  background-color: #ef4444;
+  box-shadow: 0 0 4px #ef4444;
+}
+
+.defect-indicator.medium {
+  background-color: #f59e0b;
+  box-shadow: 0 0 4px #f59e0b;
+}
+
+.defect-indicator.low {
+  background-color: #eab308;
+}
+
+.progress-bar {
+  transition: width 0.5s ease-in-out;
+}
